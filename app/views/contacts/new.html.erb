@@ -1,0 +1,11 @@
+<% content_for :title do %>Contact<% end %>  <!-- content_for is a view helper that passes a page title to the application layout -->
+<h3>Contact</h3>
+<div class="form">
+  <%= simple_form_for @contact do |form| %> <!-- SimpleForm uses the @contact to name the form, set a destination for the form data, and initialize each field in the form. It requires parameters and a block.-->
+    <%= form.error_notification %>  <!-- A method which provides all error handling -->
+    <%= form.input :name, autofocus: true %>  <!-- autofocus highlights this field when the page is loaded -->
+    <%= form.input :email %>
+    <%= form.input :content, as: :text %>  <!-- as: :text displays a multiline text area -->
+    <%= form.button :submit, 'Submit', class: 'submit' %>
+  <% end %>
+</div>

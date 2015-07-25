@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-    root to: 'visitors#new'
+    resources :contacts, only: [:new, :create] #Creates our seven routes, but we limit it to only new and create in this case.
+    root to: 'visitors#new' #sets the root to controller visitors and renders visitors/new.html
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
