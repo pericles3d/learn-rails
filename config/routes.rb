@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     resources :contacts, only: [:new, :create] #Creates our seven routes, but we limit it to only new and create in this case.
+    resources :visitors, only: [:new, :create] #Creates our seven routes, but we limit it to only new and create in this case.
     root to: 'visitors#new' #sets the root to controller visitors and renders visitors/new.html
 
 
