@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(secure_params)
     if @contact.valid?  #valid is an ActiveModel method and will check for the validations we set in the model.
-      # to do send message
+      UserMailer.contact_email(@contact).deliver #we use the UserMailer class and call the contact_email method, passing the @contact variable and then we deliver it.
       flash[:notice] = "Message sent from #{@contact.name}." #If contact is valid, a flash message will display.
       redirect_to root_path  #We are then redirected to the root. Route routes shows this.
     else
